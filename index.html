@@ -49,6 +49,7 @@
     padding-top:16px; padding-bottom:16px;
   }
   .brand{font-weight:800; font-size:1.2rem; color:#fff; letter-spacing:.2px;}
+  .brand:hover{color:#fff;}
   .brand span{color:var(--accent-light);}
   .nav-links{display:flex; gap:30px; list-style:none;}
   .nav-links a{font-size:.92rem; font-weight:500; color:var(--muted);}
@@ -65,9 +66,16 @@
     padding:6px 16px; border-radius:20px; margin-bottom:22px;
   }
   .hero-photo{
-    width:180px; height:180px; border-radius:50%;
-    overflow:hidden; flex:none;
-    border:2px solid var(--accent); box-shadow:0 0 0 6px rgba(108,99,255,0.12);
+    width:250px; height:250px; border-radius:50%;
+    flex:none; padding:5px;
+    background:linear-gradient(140deg, var(--accent-light), var(--accent) 55%, #453fb0);
+    box-shadow:0 0 0 10px rgba(108,99,255,0.08), 0 25px 50px -12px rgba(0,0,0,0.6);
+    transition:transform .3s ease, box-shadow .3s ease;
+  }
+  .hero-photo:hover{transform:translateY(-4px); box-shadow:0 0 0 10px rgba(108,99,255,0.14), 0 30px 60px -12px rgba(0,0,0,0.7);}
+  .hero-photo-inner{
+    width:100%; height:100%; border-radius:50%; overflow:hidden;
+    background:var(--bg); border:3px solid var(--bg);
   }
   .hero-photo img{width:100%; height:100%; object-fit:cover; object-position:center 12%;}
   .hero-text h1{font-size:2.7rem; line-height:1.18; margin-bottom:14px; font-weight:800;}
@@ -178,6 +186,7 @@
 
   @media (max-width:760px){
     .hero .container{flex-direction:column; text-align:center;}
+    .hero-photo{width:190px; height:190px;}
     .btn-row{justify-content:center;}
     .interest-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;}
@@ -230,7 +239,9 @@
       </div>
     </div>
     <div class="hero-photo">
-      <img src="images/SanaUllah.jpg" alt="Portrait of Sana Ullah">
+      <div class="hero-photo-inner">
+        <img src="images/SanaUllah.jpg" alt="Portrait of Sana Ullah">
+      </div>
     </div>
   </div>
 </section>
