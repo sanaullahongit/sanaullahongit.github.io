@@ -7,31 +7,32 @@
 <meta name="description" content="Sana Ullah — M.Phil. Biotechnology researcher specializing in AI-assisted diagnostics, molecular genetics, and plant biotechnology.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#152238;
-    --navy-2:#1f3252;
-    --accent:#8a6d3b;
-    --accent-2:#c9a35f;
-    --bg:#fafaf8;
-    --card:#ffffff;
-    --text:#232830;
-    --muted:#5b6470;
-    --border:#e6e3da;
+    --bg:#0f0f13;
+    --bg-alt:#16161d;
+    --card:#16161d;
+    --border:#2a2a3a;
+    --text:#e8e8f0;
+    --muted:#9999bb;
+    --accent:#6c63ff;
+    --accent-light:#8b85ff;
+    --accent-tint:rgba(108,99,255,0.15);
+    --accent-tint-border:rgba(108,99,255,0.3);
     --maxw:1040px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Source Sans 3', sans-serif;
+    font-family:'Inter', sans-serif;
     color:var(--text);
     background:var(--bg);
     line-height:1.65;
     font-size:16px;
   }
-  h1,h2,h3,h4{font-family:'Playfair Display', serif; font-weight:700; color:var(--navy);}
-  a{color:var(--navy-2); text-decoration:none;}
+  h1,h2,h3,h4{font-family:'Inter', sans-serif; font-weight:700; color:#fff;}
+  a{color:var(--accent-light); text-decoration:none;}
   a:hover{color:var(--accent);}
   img{max-width:100%; display:block;}
   .container{max-width:var(--maxw); margin:0 auto; padding:0 24px;}
@@ -39,140 +40,141 @@
   /* NAV */
   header.site-header{
     position:sticky; top:0; z-index:100;
-    background:rgba(250,250,248,0.94);
-    backdrop-filter:saturate(180%) blur(8px);
+    background:rgba(15,15,19,0.85);
+    backdrop-filter:saturate(180%) blur(10px);
     border-bottom:1px solid var(--border);
   }
   nav.container{
     display:flex; align-items:center; justify-content:space-between;
-    padding-top:14px; padding-bottom:14px;
+    padding-top:16px; padding-bottom:16px;
   }
-  .brand{font-family:'Playfair Display', serif; font-weight:700; font-size:1.25rem; color:var(--navy); letter-spacing:.3px;}
-  .brand span{color:var(--accent);}
-  .nav-links{display:flex; gap:28px; list-style:none;}
-  .nav-links a{font-size:.95rem; font-weight:600; color:var(--navy); position:relative; padding:4px 0;}
-  .nav-links a:hover{color:var(--accent);}
+  .brand{font-weight:800; font-size:1.2rem; color:#fff; letter-spacing:.2px;}
+  .brand span{color:var(--accent-light);}
+  .nav-links{display:flex; gap:30px; list-style:none;}
+  .nav-links a{font-size:.92rem; font-weight:500; color:var(--muted);}
+  .nav-links a:hover{color:#fff;}
   .nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
-  .nav-toggle span{width:24px; height:2px; background:var(--navy); display:block;}
+  .nav-toggle span{width:24px; height:2px; background:var(--text); display:block;}
 
   /* HERO */
-  .hero{
-    padding:64px 0 56px;
-    background:linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
-    border-bottom:1px solid var(--border);
+  .hero{padding:80px 0 64px;}
+  .hero .container{display:flex; align-items:center; gap:56px;}
+  .badge-pill{
+    display:inline-block; font-size:.8rem; font-weight:600; color:var(--accent-light);
+    background:var(--accent-tint); border:1px solid var(--accent-tint-border);
+    padding:6px 16px; border-radius:20px; margin-bottom:22px;
   }
-  .hero .container{display:flex; align-items:center; gap:52px;}
   .hero-photo{
-    width:190px; height:190px; border-radius:50%;
+    width:180px; height:180px; border-radius:50%;
     overflow:hidden; flex:none;
-    border:4px solid #fff; box-shadow:0 6px 24px rgba(21,34,56,.18);
+    border:2px solid var(--accent); box-shadow:0 0 0 6px rgba(108,99,255,0.12);
   }
-  .hero-photo img{width:100%; height:100%; object-fit:cover;}
-  .hero-text h1{font-size:2.5rem; line-height:1.15; margin-bottom:8px;}
-  .hero-tagline{font-size:1.08rem; color:var(--accent); font-weight:600; margin-bottom:14px;}
-  .hero-loc{color:var(--muted); font-size:.95rem; margin-bottom:22px;}
+  .hero-photo img{width:100%; height:100%; object-fit:cover; object-position:center 12%;}
+  .hero-text h1{font-size:2.7rem; line-height:1.18; margin-bottom:14px; font-weight:800;}
+  .hero-text h1 .accent{color:var(--accent-light);}
+  .hero-tagline{font-size:1.05rem; color:var(--muted); margin-bottom:10px; font-weight:500;}
+  .hero-loc{color:var(--muted); font-size:.92rem; margin-bottom:26px;}
   .hero-loc svg{vertical-align:-3px; margin-right:5px;}
   .btn-row{display:flex; gap:14px; flex-wrap:wrap;}
   .btn{
     display:inline-flex; align-items:center; gap:8px;
-    padding:11px 22px; border-radius:4px; font-weight:600; font-size:.95rem;
-    border:1.5px solid var(--navy); transition:all .15s ease;
+    padding:11px 22px; border-radius:8px; font-weight:600; font-size:.92rem;
+    border:1px solid transparent; transition:all .15s ease;
   }
-  .btn-primary{background:var(--navy); color:#fff;}
-  .btn-primary:hover{background:var(--navy-2); color:#fff;}
-  .btn-outline{background:transparent; color:var(--navy);}
-  .btn-outline:hover{background:var(--navy); color:#fff;}
+  .btn-primary{background:var(--accent); color:#fff; border-color:var(--accent);}
+  .btn-primary:hover{background:#5a51e6; color:#fff;}
+  .btn-outline{background:transparent; color:var(--muted); border-color:var(--border);}
+  .btn-outline:hover{color:#fff; border-color:var(--accent);}
 
   /* SECTIONS */
-  section{padding:60px 0;}
-  section.alt{background:#fff; border-top:1px solid var(--border); border-bottom:1px solid var(--border);}
-  .section-title{font-size:1.7rem; margin-bottom:8px;}
+  section{padding:64px 0;}
+  section.alt{background:var(--bg-alt); border-top:1px solid var(--border); border-bottom:1px solid var(--border);}
+  .section-title{font-size:1.6rem; margin-bottom:8px; color:#fff;}
   .section-kicker{
-    font-size:.78rem; letter-spacing:2px; text-transform:uppercase;
-    color:var(--accent); font-weight:700; margin-bottom:10px;
+    font-size:.76rem; letter-spacing:2px; text-transform:uppercase;
+    color:var(--accent-light); font-weight:700; margin-bottom:10px;
   }
-  .section-head{margin-bottom:34px; max-width:640px;}
+  .section-head{margin-bottom:36px; max-width:640px;}
   .section-lede{color:var(--muted);}
 
   /* ABOUT */
-  .about-body p{margin-bottom:16px; max-width:760px;}
+  .about-body p{margin-bottom:16px; max-width:760px; color:var(--text);}
 
   /* EDUCATION */
   .timeline{border-left:2px solid var(--border); padding-left:28px; display:flex; flex-direction:column; gap:26px;}
   .timeline-item{position:relative;}
   .timeline-item::before{
     content:""; position:absolute; left:-34px; top:4px;
-    width:11px; height:11px; border-radius:50%; background:var(--accent-2);
-    border:2px solid #fff; box-shadow:0 0 0 2px var(--accent);
+    width:11px; height:11px; border-radius:50%; background:var(--accent);
+    border:3px solid var(--bg); box-shadow:0 0 0 2px var(--accent);
   }
   .ti-top{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:6px;}
-  .ti-degree{font-weight:700; font-size:1.08rem; color:var(--navy);}
-  .ti-meta{font-size:.88rem; color:var(--muted); font-weight:600;}
-  .ti-inst{color:var(--muted); font-size:.95rem; margin-top:2px;}
-  .ti-score{display:inline-block; margin-top:6px; font-size:.85rem; background:#f1efe6; color:var(--accent); padding:3px 10px; border-radius:20px; font-weight:600;}
+  .ti-degree{font-weight:700; font-size:1.05rem; color:#fff;}
+  .ti-meta{font-size:.85rem; color:var(--muted); font-weight:600;}
+  .ti-inst{color:var(--muted); font-size:.93rem; margin-top:2px;}
+  .ti-score{display:inline-block; margin-top:8px; font-size:.82rem; background:var(--accent-tint); color:var(--accent-light); border:1px solid var(--accent-tint-border); padding:3px 12px; border-radius:20px; font-weight:600;}
 
   /* RESEARCH */
   .research-card{
-    background:var(--card); border:1px solid var(--border); border-radius:8px;
+    background:var(--card); border:1px solid var(--border); border-radius:12px;
     padding:28px; margin-bottom:22px;
   }
-  .research-card h3{font-size:1.15rem; margin-bottom:6px;}
-  .research-meta{font-size:.85rem; color:var(--muted); font-weight:600; margin-bottom:14px;}
+  .research-card h3{font-size:1.1rem; margin-bottom:6px; color:#fff;}
+  .research-meta{font-size:.84rem; color:var(--muted); font-weight:500; margin-bottom:14px;}
   .research-card ul{padding-left:20px; color:var(--text);}
   .research-card li{margin-bottom:6px;}
   .interest-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:8px;}
   .interest-item{
-    background:#fff; border:1px solid var(--border); border-radius:6px;
-    padding:14px 16px; font-size:.93rem; font-weight:600; color:var(--navy-2);
+    background:var(--card); border:1px solid var(--border); border-radius:8px;
+    padding:14px 16px; font-size:.92rem; font-weight:600; color:var(--text);
   }
 
   /* PUBLICATIONS */
   .pub-item{
-    border-left:3px solid var(--accent-2); padding:6px 0 6px 20px; margin-bottom:22px;
+    border-left:3px solid var(--accent); padding:6px 0 6px 20px; margin-bottom:22px;
   }
-  .pub-item h4{font-size:1.02rem; color:var(--navy); margin-bottom:5px; font-family:'Source Sans 3', sans-serif; font-weight:700;}
-  .pub-authors{font-size:.9rem; color:var(--text); margin-bottom:4px;}
+  .pub-item h4{font-size:1.0rem; color:#fff; margin-bottom:5px; font-weight:700;}
+  .pub-authors{font-size:.88rem; color:var(--muted); margin-bottom:8px;}
   .pub-status{
-    display:inline-block; font-size:.75rem; font-weight:700; letter-spacing:.5px;
-    text-transform:uppercase; color:var(--accent); background:#f1efe6;
-    padding:2px 9px; border-radius:20px; margin-top:4px;
+    display:inline-block; font-size:.72rem; font-weight:700; letter-spacing:.5px;
+    text-transform:uppercase; color:var(--accent-light); background:var(--accent-tint);
+    border:1px solid var(--accent-tint-border);
+    padding:3px 10px; border-radius:20px;
   }
 
   /* SKILLS */
   .skills-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px;}
-  .skill-card{background:var(--card); border:1px solid var(--border); border-radius:8px; padding:22px;}
-  .skill-card h4{font-size:.95rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent); margin-bottom:12px; font-family:'Source Sans 3',sans-serif;}
+  .skill-card{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:22px;}
+  .skill-card h4{font-size:.88rem; text-transform:uppercase; letter-spacing:1px; color:var(--accent-light); margin-bottom:12px; font-weight:700;}
   .skill-card ul{list-style:none;}
-  .skill-card li{font-size:.92rem; padding:5px 0; border-bottom:1px dashed var(--border); color:var(--text);}
+  .skill-card li{font-size:.9rem; padding:6px 0; border-bottom:1px solid var(--border); color:var(--text);}
   .skill-card li:last-child{border-bottom:none;}
 
   /* HONORS */
   .honors-list{list-style:none; display:flex; flex-direction:column; gap:14px; max-width:720px;}
   .honors-list li{padding-left:22px; position:relative; color:var(--text);}
-  .honors-list li::before{content:"—"; position:absolute; left:0; color:var(--accent);}
+  .honors-list li::before{content:"—"; position:absolute; left:0; color:var(--accent-light);}
 
   /* CONTACT */
   .contact-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:start;}
   .contact-list{display:flex; flex-direction:column; gap:18px; margin-top:6px;}
   .contact-row{display:flex; align-items:center; gap:14px;}
   .contact-icon{
-    width:38px; height:38px; border-radius:50%; background:var(--navy);
+    width:38px; height:38px; border-radius:50%; background:var(--accent-tint); border:1px solid var(--accent-tint-border);
     display:flex; align-items:center; justify-content:center; flex:none;
   }
-  .contact-icon svg{width:18px; height:18px; fill:#fff;}
-  .contact-row a, .contact-row span{font-size:.98rem; color:var(--text); font-weight:600;}
+  .contact-icon svg{width:17px; height:17px; stroke:var(--accent-light); fill:none;}
+  .contact-row a, .contact-row span{font-size:.95rem; color:var(--text); font-weight:500;}
   .contact-card{
-    background:var(--navy); color:#fff; border-radius:10px; padding:32px;
+    background:var(--card); border:1px solid var(--border); color:var(--text); border-radius:12px; padding:32px;
   }
-  .contact-card h3{color:#fff; font-size:1.2rem; margin-bottom:10px;}
-  .contact-card p{color:#cfd6e4; font-size:.92rem; margin-bottom:20px;}
-  .contact-card .btn-outline{border-color:#fff; color:#fff;}
-  .contact-card .btn-outline:hover{background:#fff; color:var(--navy);}
+  .contact-card h3{color:#fff; font-size:1.15rem; margin-bottom:10px;}
+  .contact-card p{color:var(--muted); font-size:.9rem; margin-bottom:22px;}
 
   footer{
-    background:var(--navy); color:#aeb8c8; padding:28px 0; text-align:center; font-size:.85rem;
+    background:var(--bg-alt); border-top:1px solid var(--border); color:var(--muted); padding:28px 0; text-align:center; font-size:.85rem;
   }
-  footer a{color:#e3c98d;}
+  footer a{color:var(--accent-light);}
 
   @media (max-width:760px){
     .hero .container{flex-direction:column; text-align:center;}
@@ -180,7 +182,7 @@
     .interest-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;}
     .nav-links{
-      position:absolute; top:100%; left:0; right:0; background:#fff;
+      position:absolute; top:100%; left:0; right:0; background:var(--bg);
       flex-direction:column; padding:16px 24px; gap:16px;
       border-bottom:1px solid var(--border); display:none;
     }
@@ -210,14 +212,12 @@
 
 <section class="hero">
   <div class="container">
-    <div class="hero-photo">
-      <img src="images/SanaUllah.jpg" alt="Portrait of Sana Ullah">
-    </div>
-    <div class="hero-text">
-      <h1>Sana Ullah</h1>
-      <div class="hero-tagline">M.Phil. Biotechnology &nbsp;|&nbsp; AI in Agriculture &nbsp;|&nbsp; Molecular Genetics</div>
+    <div class="hero-text" style="flex:1;">
+      <span class="badge-pill">Open to PhD research positions</span>
+      <h1>Hi, I'm <span class="accent">Sana Ullah</span><br>Biotechnology Researcher</h1>
+      <div class="hero-tagline">M.Phil. Biotechnology &nbsp;·&nbsp; AI in Agriculture &nbsp;·&nbsp; Molecular Genetics</div>
       <div class="hero-loc">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#5b6470" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9999bb" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         District Mohmand, Khyber Pakhtunkhwa, Pakistan
       </div>
       <div class="btn-row">
@@ -229,10 +229,13 @@
         <a class="btn btn-outline" href="#contact">Contact</a>
       </div>
     </div>
+    <div class="hero-photo">
+      <img src="images/SanaUllah.jpg" alt="Portrait of Sana Ullah">
+    </div>
   </div>
 </section>
 
-<section id="about">
+<section id="about" class="alt">
   <div class="container">
     <div class="section-head">
       <div class="section-kicker">About</div>
@@ -245,7 +248,7 @@
   </div>
 </section>
 
-<section id="education" class="alt">
+<section id="education">
   <div class="container">
     <div class="section-head">
       <div class="section-kicker">Academic Background</div>
@@ -288,7 +291,7 @@
   </div>
 </section>
 
-<section id="research">
+<section id="research" class="alt">
   <div class="container">
     <div class="section-head">
       <div class="section-kicker">Research</div>
@@ -316,7 +319,7 @@
     </div>
 
     <div class="section-head" style="margin-top:44px;">
-      <h3 style="font-size:1.15rem; color:var(--navy);">Research Interests</h3>
+      <h3 style="font-size:1.1rem; color:#fff;">Research Interests</h3>
     </div>
     <div class="interest-grid">
       <div class="interest-item">Molecular Genetics &amp; Genomics</div>
@@ -327,7 +330,7 @@
   </div>
 </section>
 
-<section id="publications" class="alt">
+<section id="publications">
   <div class="container">
     <div class="section-head">
       <div class="section-kicker">Manuscripts</div>
@@ -349,7 +352,7 @@
   </div>
 </section>
 
-<section id="skills">
+<section id="skills" class="alt">
   <div class="container">
     <div class="section-head">
       <div class="section-kicker">Capabilities</div>
@@ -408,7 +411,7 @@
     </div>
 
     <div class="section-head" style="margin-top:44px;">
-      <h3 style="font-size:1.15rem; color:var(--navy);">Honors &amp; Awards</h3>
+      <h3 style="font-size:1.1rem; color:#fff;">Honors &amp; Awards</h3>
     </div>
     <ul class="honors-list">
       <li>Awarded trophy and shield for 3rd position in SSC examination (2014) — district-level recognition.</li>
@@ -417,7 +420,7 @@
   </div>
 </section>
 
-<section id="contact" class="alt">
+<section id="contact">
   <div class="container">
     <div class="section-head">
       <div class="section-kicker">Get in Touch</div>
@@ -427,15 +430,15 @@
       <div>
         <div class="contact-list">
           <div class="contact-row">
-            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z" fill="none"/><path d="M22 6l-10 7L2 6"/></svg></div>
+            <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 4h16v16H4z" fill="none"/><path d="M22 6l-10 7L2 6"/></svg></div>
             <a href="mailto:sanaullah2282@gmail.com">sanaullah2282@gmail.com</a>
           </div>
           <div class="contact-row">
-            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
             <span>+92-302-8195100</span>
           </div>
           <div class="contact-row">
-            <div class="contact-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="contact-icon"><svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <span>District Mohmand, KPK, Pakistan</span>
           </div>
         </div>
@@ -443,7 +446,7 @@
       <div class="contact-card">
         <h3>Full CV</h3>
         <p>Download the complete curriculum vitae, including research experience, technical skills, and academic referees.</p>
-        <a class="btn btn-outline" href="resume/Sana_Ullah_Resume.pdf" download>Download PDF</a>
+        <a class="btn btn-primary" href="resume/Sana_Ullah_Resume.pdf" download>Download PDF</a>
       </div>
     </div>
   </div>
