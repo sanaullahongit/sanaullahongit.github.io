@@ -3,107 +3,191 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bactrocera Fruit Fly Detector</title>
+<title>Fruit Fly Detector — Sana Ullah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web@1.19.2/dist/ort.min.js"></script>
 <style>
   :root {
-    --navy: #1F3864;
-    --accent: #2e7d32;
-    --bg: #f7f8fa;
+    --bg: #0f0f13;
+    --card: #16161c;
+    --border: #2a2a3a;
+    --accent: #6c63ff;
+    --accent-soft-bg: rgba(108, 99, 255, 0.15);
+    --accent-soft-text: #8b85ff;
+    --text: #ffffff;
+    --muted: #9999bb;
   }
   * { box-sizing: border-box; }
   body {
-    font-family: -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
     background: var(--bg);
-    color: #1a1a1a;
+    color: var(--text);
     margin: 0;
-    padding: 24px 16px 60px;
+    padding: 0 0 60px;
   }
-  .wrap { max-width: 780px; margin: 0 auto; }
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-weight: 800; font-size: 1.2rem; color: var(--text); text-decoration: none; }
+  .logo span { color: var(--accent); }
+  .back-link {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .back-link:hover { color: var(--text); }
+
+  .wrap { max-width: 780px; margin: 0 auto; padding: 40px 20px 0; }
+
+  .eyebrow {
+    display: inline-block;
+    background: var(--accent-soft-bg);
+    color: var(--accent-soft-text);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    padding: 5px 14px;
+    margin-bottom: 14px;
+  }
   h1 {
-    color: var(--navy);
-    font-size: 1.6rem;
-    margin-bottom: 4px;
+    color: var(--text);
+    font-weight: 800;
+    font-size: 2rem;
+    margin: 0 0 8px;
   }
+  h1 span { color: var(--accent); }
   p.subtitle {
-    color: #555;
+    color: var(--muted);
     margin-top: 0;
-    line-height: 1.5;
+    line-height: 1.6;
+    font-size: 0.98rem;
   }
+  p.subtitle a { color: var(--accent-soft-text); text-decoration: none; }
+  p.subtitle a:hover { text-decoration: underline; }
+
   .card {
-    background: #fff;
-    border: 1px solid #e2e5ea;
-    border-radius: 10px;
-    padding: 20px;
-    margin-top: 18px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 24px;
   }
+
   #dropzone {
-    border: 2px dashed #b7c0cf;
+    border: 1.5px dashed var(--border);
     border-radius: 10px;
-    padding: 36px 16px;
+    padding: 40px 16px;
     text-align: center;
-    color: #667;
+    color: var(--muted);
     cursor: pointer;
     transition: border-color .15s, background .15s;
   }
   #dropzone.dragover {
-    border-color: var(--navy);
-    background: #eef2f8;
+    border-color: var(--accent);
+    background: var(--accent-soft-bg);
   }
-  #dropzone strong { color: var(--navy); }
+  #dropzone strong { color: var(--text); }
   input[type=file] { display: none; }
+
   .controls {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-top: 16px;
+    margin-top: 18px;
     flex-wrap: wrap;
   }
-  .controls label { font-size: 0.9rem; color: #444; }
+  .controls label { font-size: 0.9rem; color: var(--muted); }
+  input[type=range] { accent-color: var(--accent); }
+
   #canvasWrap {
-    margin-top: 18px;
+    margin-top: 20px;
     text-align: center;
   }
   canvas {
     max-width: 100%;
-    border-radius: 8px;
-    background: #eee;
+    border-radius: 10px;
+    background: #0a0a0d;
+    border: 1px solid var(--border);
   }
+
   #status {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    color: #666;
+    margin-top: 12px;
+    font-size: 0.88rem;
+    color: var(--muted);
     min-height: 1.2em;
   }
-  #results { margin-top: 14px; }
+
+  #results { margin-top: 16px; }
   .result-row {
     display: flex;
     justify-content: space-between;
-    padding: 6px 10px;
-    border-radius: 6px;
+    padding: 8px 12px;
+    border-radius: 8px;
     font-size: 0.92rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    margin-bottom: 6px;
   }
-  .result-row:nth-child(odd) { background: #f2f4f7; }
   .species { font-weight: 600; }
-  .species.dorsalis { color: #b91c1c; }
-  .species.zonata { color: #1e6fbf; }
+  .species.dorsalis { color: #ef4444; }
+  .species.zonata { color: var(--accent-soft-text); }
+
   .note {
-    font-size: 0.82rem;
-    color: #777;
-    margin-top: 20px;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 24px;
+    line-height: 1.6;
   }
-  .note a { color: var(--navy); }
+  .note a { color: var(--accent-soft-text); text-decoration: none; }
+  .note a:hover { text-decoration: underline; }
+
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    border: 0.8px solid var(--accent);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    padding: 11px 22px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--muted);
+    border: 0.8px solid var(--border);
+  }
+  .footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-top: 40px;
+  }
+  .footer a { color: var(--accent-soft-text); text-decoration: none; }
 </style>
 </head>
 <body>
+<header>
+  <a class="logo" href="https://sanaullahongit.github.io/">Sana <span>Ullah</span></a>
+  <a class="back-link" href="https://sanaullahongit.github.io/#research">&larr; Back to Portfolio</a>
+</header>
+
 <div class="wrap">
-  <h1>Bactrocera Fruit Fly Detector</h1>
+  <span class="eyebrow">Live Demo</span>
+  <h1>Bactrocera Fruit Fly <span>Detector</span></h1>
   <p class="subtitle">
     Upload a photo and this page will try to detect and label <em>Bactrocera dorsalis</em> and
     <em>Bactrocera zonata</em> fruit flies in it, entirely in your browser &mdash; no image is
-    uploaded to any server. Powered by a YOLOv8 model, exported to ONNX, running via
+    uploaded to any server. Built on the YOLOv8 model from my M.Phil. thesis research, exported to
+    ONNX and running via
     <a href="https://github.com/microsoft/onnxruntime" target="_blank" rel="noopener">onnxruntime-web</a>.
   </p>
 
@@ -136,12 +220,16 @@
     since those fall outside what the model was trained on.
     See the <a href="https://github.com/sanaullahongit/bactrocera-fruitfly-yolov8-detection" target="_blank" rel="noopener">training code and full results</a>.
   </p>
+
+  <div class="footer">
+    &copy; Sana Ullah &middot; <a href="https://sanaullahongit.github.io/">sanaullahongit.github.io</a>
+  </div>
 </div>
 
 <script>
 const CLASS_NAMES = ['Bactrocera dorsalis', 'Bactrocera zonata'];
 const CLASS_CSS = ['dorsalis', 'zonata'];
-const BOX_COLORS = ['#e53935', '#1e6fbf'];
+const BOX_COLORS = ['#ef4444', '#8b85ff'];
 const MODEL_INPUT_SIZE = 224;
 const IOU_THRESHOLD = 0.45;
 
@@ -326,7 +414,7 @@ function renderDetections() {
   const shown = lastDetections.filter(d => d.score >= threshold);
 
   ctx.lineWidth = 2;
-  ctx.font = '14px -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif';
+  ctx.font = "600 14px 'Inter', -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif";
   ctx.textBaseline = 'top';
 
   shown.forEach(d => {
