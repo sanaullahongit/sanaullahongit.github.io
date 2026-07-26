@@ -61,7 +61,7 @@
   .brand:hover{color:#fff;}
   .brand span{color:var(--accent-light);}
   .nav-links{display:flex; gap:30px; list-style:none;}
-  .nav-links a{font-size:.92rem; font-weight:500; color:var(--muted);}
+  .nav-links a{font-size:.92rem; font-weight:500; color:var(--muted); white-space:nowrap;}
   .nav-links a:hover{color:#fff;}
   .nav-toggle{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
   .nav-toggle span{width:24px; height:2px; background:var(--text); display:block;}
@@ -193,6 +193,11 @@
   }
   footer a{color:var(--accent-light);}
 
+  @media (max-width:1080px) and (min-width:761px){
+    .nav-links{gap:16px;}
+    .nav-links a{font-size:.82rem;}
+  }
+
   @media (max-width:760px){
     .hero .container{flex-direction:column; text-align:center;}
     .hero-photo{width:190px; height:190px;}
@@ -219,6 +224,7 @@
       <li><a href="#education">Education</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#publications">Publications</a></li>
+      <li><a href="#recommendations">Letters</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="https://github.com/sanaullahongit" target="_blank" rel="noopener">GitHub</a></li>
@@ -371,6 +377,43 @@
       <h4>Species-Specific DNA Markers and a Multiplex PCR Assay for Four Bactrocera Fruit Fly Pests in Pakistan</h4>
       <div class="pub-authors">S. Ullah, M. S. Khan</div>
       <span class="pub-status">Manuscript in Preparation</span>
+    </div>
+  </div>
+</section>
+
+<section id="recommendations" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-kicker">References</div>
+      <h2 class="section-title">Recommendation Letters</h2>
+      <p class="section-lede">Letters from faculty who taught or supervised me during my M.Phil. research.</p>
+    </div>
+
+    <div class="research-card">
+      <h3>Dr. Muhammad Sayyar Khan (Ph.D., Germany)</h3>
+      <div class="research-meta">Associate Professor, Institute of Biotechnology &amp; Genetic Engineering, University of Agriculture Peshawar &nbsp;·&nbsp; M.Phil. Thesis Supervisor</div>
+      <div class="btn-row" style="margin-top:16px;">
+        <a class="btn btn-primary" href="recommendations/Sana_Ullah_Recommendation_Letter_From_Dr_Sayyar_Khan.pdf" target="_blank" rel="noopener">View Letter</a>
+        <a class="btn btn-outline" href="recommendations/Sana_Ullah_Recommendation_Letter_From_Dr_Sayyar_Khan.pdf" download>Download PDF</a>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <h3>Dr. Israr Ud Din (Ph.D., Milan, Italy)</h3>
+      <div class="research-meta">Associate Professor (Tenured), Institute of Biotechnology &amp; Genetic Engineering, University of Agriculture Peshawar</div>
+      <div class="btn-row" style="margin-top:16px;">
+        <a class="btn btn-primary" href="recommendations/Sana_Ullah_Recommendation_Letter_From_Dr_Israr_ud_Din.pdf" target="_blank" rel="noopener">View Letter</a>
+        <a class="btn btn-outline" href="recommendations/Sana_Ullah_Recommendation_Letter_From_Dr_Israr_ud_Din.pdf" download>Download PDF</a>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <h3>Dr. Quahir Sohail</h3>
+      <div class="research-meta">Associate Professor, Biochemistry &amp; Plant Biotechnology Division, Institute of Biotechnology &amp; Genetic Engineering, University of Agriculture Peshawar</div>
+      <div class="btn-row" style="margin-top:16px;">
+        <a class="btn btn-primary" href="recommendations/Sana_Ullah_Recommendation_Letter_From_Dr_Quahir_Sohail.pdf" target="_blank" rel="noopener">View Letter</a>
+        <a class="btn btn-outline" href="recommendations/Sana_Ullah_Recommendation_Letter_From_Dr_Quahir_Sohail.pdf" download>Download PDF</a>
+      </div>
     </div>
   </div>
 </section>
